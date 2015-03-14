@@ -13,6 +13,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'wting/rust.vim'
 Plugin 'carlson-erik/wolfpack'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 " snipmate
 Bundle "MarcWeber/vim-addon-mw-utils"
