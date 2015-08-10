@@ -118,6 +118,7 @@ fi
 
 ## by Mohammad
 alias rpi2desktop="mkdir -p /home/mohammad/rpiftp && sudo curlftpfs -o allow_other ftp://rpi.local /home/mohammad/rpiftp/ && rsync -ah --progress /home/mohammad/rpiftp/* /home/mohammad/Desktop/ && rm -r /home/mohammad/rpiftp/* && sudo umount /home/mohammad/rpiftp/ && rm -r /home/mohammad/rpiftp"
-alias sshrpi="ssh pi@rpi.local"
+alias torrestart="sudo service tor restart && tail -f /var/log/tor/log"
+function brightness() { echo "$@" | sudo tee /sys/class/backlight/intel_backlight/brightness; }
 
 export TERM='xterm-256color'

@@ -12,14 +12,19 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/a.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-commentary'
+Plugin 'tComment'
 Plugin 'wting/rust.vim'
 Plugin 'carlson-erik/wolfpack'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
-
+Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'matze/vim-tex-fold'
+" vim-markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 " snipmate
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -36,9 +41,6 @@ set number
 "set relativenumber
 set hidden
 set laststatus=2
-set foldmethod=syntax
-set foldlevelstart=1
-set foldnestmax=2
 set modeline
 set t_Co=256
 set autowrite
@@ -69,6 +71,12 @@ set guifont=Monospace\ 12
 " highlight GitGutterChangeDelete guibg=#323332
 
 " -----------------------------------------------------------
+" .md files are markdown files not modula2 ones
+" http://stackoverflow.com/questions/23279292/
+" -----------------------------------------------------------
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" -----------------------------------------------------------
 " color correction for herald and git-gutter
 " -----------------------------------------------------------
 hi clear LineNr
@@ -77,6 +85,44 @@ hi GitGutterAdd guibg=#1F1F1F guifg=green
 hi GitGutterChange guibg=#1F1F1F guifg=purple
 hi GitGutterDelete guibg=#1F1F1F guifg=red
 hi GitGutterChangeDelete guibg=#1F1F1F guifg=red
+
+" -----------------------------------------------------------
+" vim-tex-fold
+" -----------------------------------------------------------
+let g:tex_fold_additional_envs = ['abstract']
+
+" -----------------------------------------------------------
+" vim-markdown 
+" -----------------------------------------------------------
+let g:vim_markdown_frontmatter=1
+
+" -----------------------------------------------------------
+" YouCompleteMe 
+" -----------------------------------------------------------
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+
+" -----------------------------------------------------------
+" CtrlP
+" -----------------------------------------------------------
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/\.git/*,*/bin/*,*/out/*
+"let g:ctrlp_custom_ignore = '(bin|out)$'
+
+" -----------------------------------------------------------
+" http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size  
+" -----------------------------------------------------------
+if has("gui_running")
+  " GUI is running or is about to start.
+  set lines=999 columns=999
+else
+  " This is console Vim.
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
 
 " -----------------------------------------------------------
 " Source the vimrc file after saving it
