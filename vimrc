@@ -149,6 +149,12 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
+" -----------------------------------------------------------
+"  resolve incompatibility between snipmate and ycm
+" -----------------------------------------------------------
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
 " ---------------------------------------------------------------------------
 " Airline
 " ---------------------------------------------------------------------------
