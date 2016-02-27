@@ -155,5 +155,5 @@ bar {
 # Mohammad
 
 new_window 1pixel
-exec --no-startup-id /usr/libexec/gnome-settings-daemon
+exec --no-startup-id /usr/bin/gnome-settings-daemon
 exec --no-startup-id nm-applet
