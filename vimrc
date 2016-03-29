@@ -1,5 +1,5 @@
 " -----------------------------------------------------------
-" vundle 
+" vundle
 " -----------------------------------------------------------
 set nocompatible
 filetype off
@@ -92,12 +92,12 @@ hi GitGutterChangeDelete guibg=#1F1F1F guifg=red
 let g:tex_fold_additional_envs = ['abstract']
 
 " -----------------------------------------------------------
-" vim-markdown 
+" vim-markdown
 " -----------------------------------------------------------
 let g:vim_markdown_frontmatter=1
 
 " -----------------------------------------------------------
-" YouCompleteMe 
+" YouCompleteMe
 " -----------------------------------------------------------
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
@@ -109,19 +109,19 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/\.git/*,*/bin/*,*/out/*
 "let g:ctrlp_custom_ignore = '(bin|out)$'
 
 " -----------------------------------------------------------
-" http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size  
+" http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
 " -----------------------------------------------------------
 if has("gui_running")
-  " GUI is running or is about to start.
-  set lines=999 columns=999
+	" GUI is running or is about to start.
+	set lines=999 columns=999
 else
-  " This is console Vim.
-  if exists("+lines")
-    set lines=50
-  endif
-  if exists("+columns")
-    set columns=100
-  endif
+	" This is console Vim.
+	if exists("+lines")
+		set lines=50
+	endif
+	if exists("+columns")
+		set columns=100
+	endif
 endif
 
 " -----------------------------------------------------------
@@ -133,11 +133,11 @@ endif
 
 " -----------------------------------------------------------
 " https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
-" -----------------------------------------------------------
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" ----------------------------------------------------------0
+nnoremap <C-S-J> <C-W><C-J>
+nnoremap <C-S-K> <C-W><C-K>
+nnoremap <C-S-L> <C-W><C-L>
+nnoremap <C-S-H> <C-W><C-H>
 set splitbelow
 set splitright
 
@@ -152,8 +152,8 @@ set guioptions-=L  "remove left-hand scroll bar
 " -----------------------------------------------------------
 "  resolve incompatibility between snipmate and ycm
 " -----------------------------------------------------------
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 
 " ---------------------------------------------------------------------------
 " Airline
@@ -164,4 +164,14 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ' '
-"let g:airline_right_alt_sep = ''
+
+" ---------------------------------------------------------------------------
+" TrimWhitespace http://vi.stackexchange.com/a/456
+" ---------------------------------------------------------------------------
+fun! TrimWhitespace()
+	let l:save_cursor = getpos('.')
+	%s/\s\+$//e
+	call setpos('.', l:save_cursor)
+endfun
+
+command! TrimWhitespace call TrimWhitespace()
