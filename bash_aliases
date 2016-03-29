@@ -5,9 +5,9 @@ rpi2desktop()
 	mkdir -p /home/mohammad/rpiftp 
 	sudo curlftpfs -o allow_other ftp://rpi.local /home/mohammad/rpiftp/
 	rsync -ah --progress /home/mohammad/rpiftp/* /home/mohammad/Desktop/
-	rm -r /home/mohammad/rpiftp/*
+	rm -rf /home/mohammad/rpiftp/*
 	sudo umount /home/mohammad/rpiftp/
-	rm -r /home/mohammad/rpiftp
+	rm -rf /home/mohammad/rpiftp
 }
 alias rpi2desktop=rpi2desktop
 
