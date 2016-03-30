@@ -22,6 +22,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'matze/vim-tex-fold'
+Plugin 'junegunn/goyo.vim'
 " vim-markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -58,7 +59,9 @@ filetype indent plugin on
 " colorscheme devbox-dark-256
 " colorscheme wolfpack
 " colorscheme monokain
-colorscheme herald
+" colorscheme herald " this is a good one
+let g:seoul256_background = 235
+colorscheme seoul256
 set guifont=Monospace\ 12
 
 " -----------------------------------------------------------
@@ -79,12 +82,12 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " -----------------------------------------------------------
 " color correction for herald and git-gutter
 " -----------------------------------------------------------
-hi clear LineNr
-hi SignColumn guibg=#1F1F1F
-hi GitGutterAdd guibg=#1F1F1F guifg=green
-hi GitGutterChange guibg=#1F1F1F guifg=purple
-hi GitGutterDelete guibg=#1F1F1F guifg=red
-hi GitGutterChangeDelete guibg=#1F1F1F guifg=red
+" hi clear LineNr
+" hi SignColumn guibg=#1F1F1F
+" hi GitGutterAdd guibg=#1F1F1F guifg=green
+" hi GitGutterChange guibg=#1F1F1F guifg=purple
+" hi GitGutterDelete guibg=#1F1F1F guifg=red
+" hi GitGutterChangeDelete guibg=#1F1F1F guifg=red
 
 " -----------------------------------------------------------
 " vim-tex-fold
