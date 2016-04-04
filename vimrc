@@ -47,6 +47,7 @@ set t_Co=256
 set autowrite
 set clipboard=unnamed       " use X11 clipboard always
 set diffopt=filler,vertical
+set showcmd
 
 imap jj <esc>
 nnoremap <space> za
