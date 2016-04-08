@@ -25,7 +25,7 @@ function brightness()
 	elif [ "$1" = "max" ]; then
 		cat /sys/class/backlight/intel_backlight/max_brightness | sudo tee /sys/class/backlight/intel_backlight/brightness
 	else
-		echo "$@" | sudo tee /sys/class/backlight/intel_backlight/brightness
+		echo "$1" | sudo tee /sys/class/backlight/intel_backlight/brightness
 	fi 
 }
 alias brightness=brightness
