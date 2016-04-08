@@ -22,6 +22,8 @@ function brightness()
 { 
 	if [ $# -eq 0 ]; then 
 		cat /sys/class/backlight/intel_backlight/brightness
+	elif [ "$1" = "max" ]; then
+		cat /sys/class/backlight/intel_backlight/max_brightness | sudo tee /sys/class/backlight/intel_backlight/brightness
 	else
 		echo "$@" | sudo tee /sys/class/backlight/intel_backlight/brightness
 	fi 
