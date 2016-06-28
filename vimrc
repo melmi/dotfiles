@@ -23,14 +23,18 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'matze/vim-tex-fold'
 Plugin 'junegunn/goyo.vim'
+Plugin 'ntpeters/vim-better-whitespace'
+
 " vim-markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 " snipmate
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+" Bundle "MarcWeber/vim-addon-mw-utils"
+" Bundle "tomtom/tlib_vim"
+" Bundle "garbas/vim-snipmate"
+
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
@@ -113,6 +117,12 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/\.git/*,*/bin/*,*/out/*
 "let g:ctrlp_custom_ignore = '(bin|out)$'
 
 " -----------------------------------------------------------
+" automatically strip whitespaces on save. works with vim-better-whitespace
+" https://github.com/ntpeters/vim-better-whitespace
+" -----------------------------------------------------------
+autocmd BufWritePre * StripWhitespace
+
+" -----------------------------------------------------------
 " http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
 " -----------------------------------------------------------
 " if has("gui_running")
@@ -156,8 +166,13 @@ set guioptions-=L  "remove left-hand scroll bar
 " -----------------------------------------------------------
 "  resolve incompatibility between snipmate and ycm
 " -----------------------------------------------------------
-let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+" let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " ---------------------------------------------------------------------------
 " Airline
@@ -172,10 +187,10 @@ let g:airline_right_sep = ' '
 " ---------------------------------------------------------------------------
 " TrimWhitespace http://vi.stackexchange.com/a/456
 " ---------------------------------------------------------------------------
-fun! TrimWhitespace()
-	let l:save_cursor = getpos('.')
-	%s/\s\+$//e
-	call setpos('.', l:save_cursor)
-endfun
-
-command! TrimWhitespace call TrimWhitespace()
+" fun! TrimWhitespace()
+" 	let l:save_cursor = getpos('.')
+" 	%s/\s\+$//e
+" 	call setpos('.', l:save_cursor)
+" endfun
+"
+" command! TrimWhitespace call TrimWhitespace()
