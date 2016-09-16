@@ -1,23 +1,16 @@
 #!/bin/bash
 
-rpt2desktop()
+rpi2desktop()
 {
 	ssh rpi "transmission-remote -t all -r && sudo chown -R pi:pi ~/torrent/completed/* && mv ~/torrent/completed/* ~/ftp/"
-	mkdir -p /home/mohammad/rpiftp
-	sudo curlftpfs -o allow_other ftp://rpi.local /home/mohammad/rpiftp/
-	rsync -ah --progress /home/mohammad/rpiftp/* /home/mohammad/Desktop/
-	rm -rf /home/mohammad/rpiftp/*
-	sudo umount /home/mohammad/rpiftp/
-	rm -rf /home/mohammad/rpiftp
+	rsync -ah --remove-source-files --progress pi@rpi.local:ftp/ ~/Desktop/
 }
-alias rpt2desktop=rpt2desktop
 
 torrestart()
 {
 	sudo service tor restart
 	tail -f /var/log/tor/log
 }
-alias torrestart=torrestart
 
 function brightness()
 {
@@ -29,7 +22,6 @@ function brightness()
 		echo "$1" | sudo tee /sys/class/backlight/intel_backlight/brightness
 	fi
 }
-alias brightness=brightness
 
 transfer()
 {
@@ -47,7 +39,6 @@ transfer()
 	cat $tmpfile
 	rm -f $tmpfile
 }
-alias transfer=transfer
 
 fa()
 {
@@ -66,6 +57,9 @@ fa()
 	mv -f "$tmpfile" "$destfile"
 }
 
-alias tunnel="ssh -ND 9999 vps &"
-
-alias vpn="sudo openvpn --config /home/mohammad/Desktop/melmi.ovpn"
+tunnel()
+{
+	sshcmd="ssh -f -N -n -D localhost:8090 -R 12345:localhost:12345 vps"
+	kill $(ps ax | grep "ssh -f -N -n -D localhost:8090 -R 12345:localhost:12345 vps" | cut -d' ' -f1) > /dev/null
+	eval $sshcmd
+}
