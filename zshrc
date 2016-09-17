@@ -1,3 +1,4 @@
+# antigen astuff
 
 source antigen.zsh
 
@@ -9,6 +10,7 @@ antigen bundle extract
 antigen bundle chrissicool/zsh-256color
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle rupa/z
 
 antigen theme eastwood
 
@@ -16,6 +18,7 @@ antigen apply
 
 ###
 
-bindkey '^F' autosuggest-accept
+bindkey '^ ' forward-word
+# bindkey '^ ' autosuggest-accept
 
 source .bash_aliases
