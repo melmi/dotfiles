@@ -1,4 +1,4 @@
-# antigen astuff
+# antigen stuff
 
 source antigen.zsh
 
