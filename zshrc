@@ -11,8 +11,9 @@ antigen bundle chrissicool/zsh-256color
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle rupa/z
+antigen bundle unixorn/autoupdate-antigen.zshplugin
 
-antigen theme eastwood
+antigen theme mh
 
 antigen apply
 
