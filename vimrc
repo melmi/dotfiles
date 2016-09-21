@@ -24,15 +24,10 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'matze/vim-tex-fold'
 Plugin 'junegunn/goyo.vim'
 Plugin 'ntpeters/vim-better-whitespace'
-
 " vim-markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-" snipmate
-" Bundle "MarcWeber/vim-addon-mw-utils"
-" Bundle "tomtom/tlib_vim"
-" Bundle "garbas/vim-snipmate"
-
+"""
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 
@@ -59,24 +54,10 @@ vnoremap <space> za
 
 syntax on
 filetype indent plugin on
-" colorscheme Monokai
-" colorscheme 256-grayvim
-" colorscheme devbox-dark-256
-" colorscheme wolfpack
-" colorscheme monokain
 " colorscheme herald " this is a good one
 let g:seoul256_background = 235
 colorscheme seoul256
 set guifont=Monospace\ 12
-
-" -----------------------------------------------------------
-" color correction for wolfpack and git-gutter
-" -----------------------------------------------------------
-" highlight SignColumn guibg=#323332
-" highlight GitGutterAdd guibg=#323332
-" highlight GitGutterChange guibg=#323332
-" highlight GitGutterDelete guibg=#323332
-" highlight GitGutterChangeDelete guibg=#323332
 
 " -----------------------------------------------------------
 " .md files are markdown files not modula2 ones
@@ -121,22 +102,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/\.git/*,*/bin/*,*/out/*
 " https://github.com/ntpeters/vim-better-whitespace
 " -----------------------------------------------------------
 autocmd BufWritePre * StripWhitespace
-
-" -----------------------------------------------------------
-" http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
-" -----------------------------------------------------------
-" if has("gui_running")
-" 	" GUI is running or is about to start.
-" 	set lines=999 columns=999
-" else
-" 	" This is console Vim.
-" 	if exists("+lines")
-" 		set lines=50
-" 	endif
-" 	if exists("+columns")
-" 		set columns=100
-" 	endif
-" endif
 
 " -----------------------------------------------------------
 " Source the vimrc file after saving it
@@ -184,13 +149,3 @@ let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ' '
 
-" ---------------------------------------------------------------------------
-" TrimWhitespace http://vi.stackexchange.com/a/456
-" ---------------------------------------------------------------------------
-" fun! TrimWhitespace()
-" 	let l:save_cursor = getpos('.')
-" 	%s/\s\+$//e
-" 	call setpos('.', l:save_cursor)
-" endfun
-"
-" command! TrimWhitespace call TrimWhitespace()
