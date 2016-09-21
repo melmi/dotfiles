@@ -1,6 +1,6 @@
 # antigen stuff
 
-source antigen.zsh
+source .antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
