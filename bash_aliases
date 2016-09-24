@@ -29,9 +29,9 @@ transfer()
 		echo "No arguments specified. Usage: echo transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"
 		return 1
 	fi
-	tmpfile=$( mktemp -t transferXXX );
+	local tmpfile=$( mktemp -t transferXXX );
 	if tty -s; then
-		basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
+		local basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
 		curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile
 	else
 		curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile
@@ -46,11 +46,11 @@ fa()
 		echo "No arguments specified. Usage: fa sum.srt [movie.mkv]"
 		return 1
 	fi
-	tmpfile=$( mktemp -t faXXX );
+	local tmpfile=$( mktemp -t faXXX );
 	if [ $# -eq 1 ]; then
-		destfile="$(dirname "$1")/$(basename "$1")"
+		local destfile="$(dirname "$1")/$(basename "$1")"
 	else
-		destfile="$(dirname "$2")/$(basename "$2")"
+		local destfile="$(dirname "$2")/$(basename "$2")"
 	fi
 	destfile="${destfile%.*}.srt"
 	iconv -f WINDOWS-1256 -t UTF8 "$1" | sed s/ي/ی/g | sed s/ك/ک/g > "$tmpfile"
@@ -59,7 +59,7 @@ fa()
 
 tunnel()
 {
-	sshcmd="ssh -f -N -n -D localhost:8090 -R 12345:localhost:12345 vps"
+	local sshcmd="ssh -f -N -n -D localhost:8090 -R 12345:localhost:12345 vps"
 	kill $(ps ax | grep $sshcmd | cut -d' ' -f1) > /dev/null
 	eval $sshcmd
 }
