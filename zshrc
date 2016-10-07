@@ -1,6 +1,6 @@
 # antigen stuff
 
-source .antigen/antigen.zsh
+source ~/.antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
@@ -13,13 +13,11 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle rupa/z
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 
-antigen theme mh
+antigen theme melmi/baran themes/baran
 
 antigen apply
-
-###
 
 bindkey '^ ' forward-word
 # bindkey '^ ' autosuggest-accept
 
-source .bash_aliases
+source ~/.bash_aliases
