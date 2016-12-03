@@ -59,7 +59,9 @@ fa()
 
 tunnel()
 {
-	local sshcmd="ssh -f -N -n -D localhost:8090 -R 12345:localhost:12345 vps"
-	kill -9 `ps ax | grep $sshcmd | cut -d' ' -f 1 | head -n -1` > /dev/null
+	local sshcmd="ssh -f -N -n -D localhost:8090 vps"
+	# local sshcmd="ssh -f -N -n -D localhost:8090 -R 12345:localhost:12345 vps"
+	# kill -9 `ps ax | grep $sshcmd | cut -d' ' -f 1 | head -n -1` > /dev/null
+	pkill $sshcmd
 	eval $sshcmd
 }
