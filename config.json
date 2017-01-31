@@ -9,6 +9,7 @@
 			"zshrc": "~/.zshrc",
 			"bash_aliases": "~/.bash_aliases",
 			"vimrc":"~/.vimrc",
-			"vim/": "~/.vim"
+			"vim/": "~/.vim",
+			"gitconfig": "~/.gitconfig"
 		}
 }
