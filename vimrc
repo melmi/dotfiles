@@ -29,7 +29,9 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 """
 Plugin 'ervandew/supertab'
-Plugin 'Valloric/YouCompleteMe'
+if match(system('uname -a'),'Ubuntu') != -1
+	Plugin 'Valloric/YouCompleteMe'
+endif
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 
