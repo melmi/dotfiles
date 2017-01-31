@@ -3,7 +3,9 @@
 rpi2desktop()
 {
 	ssh rpi "transmission-remote -t all -r && sudo chown -R pi:pi ~/torrent/completed/* && mv ~/torrent/completed/* ~/ftp/"
-	rsync -ah --remove-source-files --progress pi@rpi.local:ftp/ ~/Desktop/
+	# Hoping for faster rsync by using this gist: https://gist.github.com/KartikTalwar/4393116
+	# rsync -ah --remove-source-files --progress pi@rpi.local:ftp/ ~/Desktop/
+	rsync -aHAXxv --numeric-ids --remove-source-files --progress -e "ssh -T -c arcfour -o Compression=no -x" pi@rpi.local:ftp/ ~/Desktop/
 }
 
 torrestart()

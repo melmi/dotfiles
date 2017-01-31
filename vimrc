@@ -14,6 +14,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tComment'
 Plugin 'wting/rust.vim'
+Plugin 'junegunn/seoul256.vim'
 " Plugin 'carlson-erik/wolfpack'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
@@ -56,7 +57,7 @@ vnoremap <space> za
 syntax on
 filetype indent plugin on
 " colorscheme herald " this is a good one
-let g:seoul256_background = 235
+let g:seoul256_background = 236
 colorscheme seoul256
 set guifont=Monospace\ 12
 

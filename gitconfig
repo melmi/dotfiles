@@ -1,0 +1,14 @@
+[user]
+	name = Mohammad Elmi
+	email = elmi.moh@gmail.com
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[push]
+	default = simple
+[alias]
+	stat = status -s
+	slog = log --pretty=format:\"%C(yellow)%h %C(cyan)%ad %C(reset)%s\" --date=short
+[color]
+	ui = true
