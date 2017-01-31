@@ -1,3 +1,3 @@
 all:
-	git submodule init --recursive
-	python dotty/dotty.py -r config.json
+	git submodule update --init --recursive
+	python3 dotty/dotty.py -r config.json
