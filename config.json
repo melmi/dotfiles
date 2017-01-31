@@ -1,0 +1,14 @@
+{
+	"commands": [
+		"sudo apt-get install zsh git clang-format",
+		"sudo chsh -s /bin/zsh",
+		"git clone https://github.com/zsh-users/antigen.git ~/.antigen"],
+		"link": {
+			"bash_aliases": "~/.bash_aliases",
+			"bashrc": "~/.bashrc",
+			"zshrc": "~/.zshrc",
+			"bash_aliases": "~/.bash_aliases",
+			"vimrc":"~/.vimrc",
+			"vim/": "~/.vim"
+		}
+}
