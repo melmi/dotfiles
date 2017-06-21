@@ -59,7 +59,7 @@ filetype indent plugin on
 " colorscheme herald " this is a good one
 let g:seoul256_background = 236
 colorscheme seoul256
-set guifont=Monospace\ 12
+set guifont=Menlo\ 14
 
 " -----------------------------------------------------------
 " .md files are markdown files not modula2 ones
