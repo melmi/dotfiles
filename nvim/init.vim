@@ -75,6 +75,7 @@ let g:airline_right_sep = ' '
 " CtrlP
 " -----------------------------------------------------------
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/\.git/*,*/bin/*,*/out/*
+set wildignore+=*/tmp/*,*.pdf,*.docx,*.gnumeric
 
 " -----------------------------------------------------------
 " automatically strip whitespaces on save. works with vim-better-whitespace
