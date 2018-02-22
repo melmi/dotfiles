@@ -10,8 +10,10 @@ rpi2desktop()
 
 torrestart()
 {
-	sudo service tor restart
-	tail -f /var/log/tor/log
+	# sudo service tor restart
+	# tail -f /var/log/tor/log
+	sudo systemctl restart tor.service
+	journalctl -fu tor.service
 }
 
 function brightness()
