@@ -72,3 +72,10 @@ tunnel()
 	# pkill -f ssh
 	# eval $sshcmd
 }
+
+abc()
+{
+	xrandr --output HDMI1 --auto --output eDP1 --off
+	xbacklight +10
+	xbacklight -set 100
+}

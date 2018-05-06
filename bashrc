@@ -119,5 +119,5 @@ if ! shopt -oq posix; then
 fi
 
 ## by Mohammad
-export TERM='xterm-256color'
-alias of301='source $HOME/OpenFOAM/OpenFOAM-3.0.1/etc/bashrc '
+#export TERM='xterm-256color'
+#alias of301='source $HOME/OpenFOAM/OpenFOAM-3.0.1/etc/bashrc '
