@@ -10,8 +10,6 @@ rpi2desktop()
 
 torrestart()
 {
-	# sudo service tor restart
-	# tail -f /var/log/tor/log
 	sudo systemctl restart tor.service
 	journalctl -fu tor.service
 }
@@ -30,18 +28,11 @@ function brightness()
 transfer()
 {
 	if [ $# -eq 0 ]; then
-		echo "No arguments specified. Usage: echo transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"
+		echo "No arguments specified. Usage: echo transfer <filename>"
 		return 1
 	fi
-	local tmpfile=$( mktemp -t transferXXX );
-	if tty -s; then
-		local basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
-		curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile
-	else
-		curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile
-	fi
-	cat $tmpfile
-	rm -f $tmpfile
+	curl --progress-bar -T $1 https://filepush.co/upload/
+	echo
 }
 
 fa()
@@ -61,21 +52,3 @@ fa()
 	mv -f "$tmpfile" "$destfile"
 }
 
-tunnel()
-{
-	autossh -f -N -n -D 'localhost:8090' vps
-
-	# sshcmd="autossh -M 0 -f -T -N -n -D 'localhost:8090' vps"
-	# local sshcmd="ssh -f -N -n -D localhost:8090 -R 12345:localhost:12345 vps"
-	# kill -9 `ps ax | grep $sshcmd | cut -d' ' -f 1 | head -n -1` > /dev/null
-	# lsof -ti:8090 | xargs kill -9
-	# pkill -f ssh
-	# eval $sshcmd
-}
-
-abc()
-{
-	xrandr --output HDMI1 --auto --output eDP1 --off
-	xbacklight +10
-	xbacklight -set 100
-}
