@@ -6,7 +6,7 @@ all:
 	@ln -sf $(CURDIR)/zshrc ~/.zshrc
 	@ln -sf $(CURDIR)/gitconfig ~/.gitconfig
 	@echo "Installing required packages"
-	@sudo apt-get -qq install zsh git fzf
+	@sudo apt-get -qq install zsh git fzf bat
 	@sudo chsh -s /bin/zsh
 	@[ -e ~/.antigen ] || git clone -q https://github.com/zsh-users/antigen.git ~/.antigen
 	@echo "Done."

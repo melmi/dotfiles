@@ -20,5 +20,7 @@ antigen apply
 bindkey '^ ' forward-word
 # bindkey '^ ' autosuggest-accept
 
+alias bat=batcat
+
 source /usr/share/doc/fzf/examples/completion.zsh
 source ~/.bash_aliases
