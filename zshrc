@@ -24,3 +24,7 @@ alias bat=batcat
 
 source /usr/share/doc/fzf/examples/completion.zsh
 source ~/.bash_aliases
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/melmi/mc mc
