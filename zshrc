@@ -28,3 +28,7 @@ source ~/.bash_aliases
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/melmi/mc mc
+
+[ -f "~/.ghcup/env" ] && source "~/.ghcup/env" # ghcup-env
+export NNN_TRASH=1
+
