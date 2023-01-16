@@ -10,6 +10,7 @@
 [alias]
 	stat = status -s
 	slog = log --pretty=format:\"%C(yellow)%h %C(cyan)%ad %C(reset)%s\" --date=short
+	graph = log --oneline --abbrev-commit --all --graph --color
 [color]
 	ui = true
 
